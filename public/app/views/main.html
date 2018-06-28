@@ -1,0 +1,45 @@
+<div class=" mt-3" ng-controller="MainCtrl">
+
+  <div class="d-flex justify-content-center">
+      <form name="route-form" class="d-flex flex-row" ng-model="route_form" ng-submit="submitForm(route_form)">
+          <input class="form-control" id="route_from" type="text" name="from" placeholder="Start" ng-focus="initializeAutocomplete($event)" ng-model="route_form.from">
+          <input class="form-control ml-2"  id="route_to" type="text" name="to" ng-model="route_form.to" placeholder="End" ng-focus="initializeAutocomplete($event)">
+          <button class="btn btn-info ml-3" type="submit">Submit</button>
+      </form>
+  
+  </div>
+    <div class="saved-routes text-center mt-4">
+    <h4 class="">{{savedRoutesTitle}}</h4>
+      <div class="d-flex flex-row justify-content-center">
+        <div class="p-3">
+          <div class="single-route mb-2 d-flex flex-row justify-content-between align-items-center" ng-repeat="route in history">
+            <div class="route_info">
+              <span class="identificator">
+                  #{{route.id}}
+              </span>
+              <span class="route_from">
+                {{route.from.formatted_address}}
+              </span>
+              -
+               <span class="route_to">
+                {{route.to.formatted_address}}
+              </span>
+            </div>
+              <div class="route_actions ml-5">
+                <button class="btn btn-info" ng-click="goToDetails(route.id)">
+                  Details
+                </button>
+                  <button class="btn btn-danger" ng-click="removeRoute(route.id)">
+                  Delete
+                </button>
+             </div>
+          </div>
+          <div class="route_amount text-left">
+            <p class="font-weight-bold">
+              You have {{history.length}} route(s).
+            </p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container mt-4">
+	<button class="btn btn-warning font-weight-bold text-white" ng-click="goBack()">Go back</button>
+	<div class="main-wrapper d-flex justify-content-center">
+		<div>
+			<h4>#1 {{from.formatted_address}} - {{to.formatted_address}}</h4>
+				<div id="distance_map">
+
+				</div>
+
+				<div class="route-info">
+					<span class="route-info-distance">
+						<strong>{{distance}}</strong>.
+					</span>
+					<span class="route-info-duration ml-1">
+						{{duration}}
+					</span>
+				</div>
+			</div>
+		</div>
+</div>
